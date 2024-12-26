@@ -56,9 +56,9 @@ const SignupForm = () => {
             </label>
             <input
               type="password"
-              placeholder="UserPassword"
-              id="userpassword"
-              name="userpassword"
+              placeholder="Password"
+              id="password"
+              name="password"
               className="mt-1 w-full p-2 h-10 rounded-md border border-none outline-none"
             />
           </div>

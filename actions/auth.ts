@@ -30,16 +30,17 @@ export async function signUp(formData: FormData) {
                 username: username
             }
         )
-    } catch (err) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
 
     }
 
     const { account } = await createAdminClient();
 
-    await account.create(ID.unique(), email, password, usernae);
+    await account.create(ID.unique(), email, password, username);
     const session = await account.createEmailPasswordSession(email, password);
 
-    cookies().set("my-custom-session", session.secret, {
+    (await cookies()).set("my-custom-session", session.secret, {
         path: "/",
         httpOnly: true,
         sameSite: "strict",

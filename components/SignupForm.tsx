@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthButton from "./AuthButton";
+import { signUp } from "@/actions/auth";
 
 const SignupForm = () => {
   const [error, setError] = useState<string | null>(null);
@@ -14,7 +15,8 @@ const SignupForm = () => {
     setError(null);
 
     const formData = new FormData(event.currentTarget);
-    const result = null;
+
+    const result = await signUp(formData);
     if (result?.error) {
       setError(result?.error);
     } else if (resutl?.success) {

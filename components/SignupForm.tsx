@@ -9,7 +9,7 @@ const SignupForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
-  const handleSumbmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSumbmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
@@ -17,7 +17,7 @@ const SignupForm = () => {
     const formData = new FormData(event.currentTarget);
 
     const result = await signUp(formData);
-    if (result?.error) {
+    if (result?.error?.) {
       setError(result?.error);
     } else if (resutl?.success) {
       router.push("/");

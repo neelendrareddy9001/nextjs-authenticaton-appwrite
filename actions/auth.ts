@@ -6,6 +6,8 @@ import { ID, Query } from "node-appwrite"
 import { headers } from "next/headers"
 import { QAuthProvider } from 'node-appwrite';
 import { redirect } from "next/navigation"
+import { NextResponse } from "next/server"
+import { request } from "http"
 
 
 
@@ -47,5 +49,5 @@ export async function signUp(formData: FormData) {
         secure: true,
     });
 
-    redirect("/account");
+    return NextResponse.redirect(`${request.nexUrl.origin}`)
 }
